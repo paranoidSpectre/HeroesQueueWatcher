@@ -1,0 +1,21 @@
+document {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+.button {
+    position: absolute;
+    border: 2px solid black;
+    width: 50%;
+    height: 30%;
+    font-size: 50pt;
+    text-align: center;
+}
+
+#toggle {
+    left: 25%;
+    top: 10%;
+}
