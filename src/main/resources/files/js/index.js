@@ -1,7 +1,6 @@
 $(document).ready(function () {
 	
 	var pollingtimer = undefined;
-	var audio = new Audio("/sfx/airhorn.mp3") ;
     
 	var numberOfPeriods = 0;
 	
@@ -11,12 +10,15 @@ $(document).ready(function () {
 	
 	function togglePolling() {
 		if (!pollingtimer) {
+			$('#airhorn')[0].muted = true;
+			$("#airhorn").trigger('play').trigger('pause').prop("currentTime", 0);
         	$("body").css("background-color", "white");
 			pollingtimer = setInterval(function () {
                 $.get('/queuestate', function (data) {
                     data = data == 'true';
                     if (data == true) {
-                    	audio.play();
+            			$('#airhorn')[0].muted = false;
+                    	$('#airhorn').trigger('play');
                     	$("body").css("background-color", "lime");
                     	togglePolling();
                     }
@@ -30,8 +32,9 @@ $(document).ready(function () {
                 	text += ".";
                 }
                 $('#status').text(text);
-                $('#toggle').html("Stop<br>Monitoring");
             }, 1000);
+            $('#status').text("Watching");
+            $('#toggle').html("Stop<br>Monitoring");
         } else {
             clearInterval(pollingtimer);
             pollingtimer = undefined;
