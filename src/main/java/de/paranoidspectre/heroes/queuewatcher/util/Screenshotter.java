@@ -43,11 +43,9 @@ public class Screenshotter {
 					(int) Toolkit.getDefaultToolkit().getScreenSize().getHeight(), BufferedImage.TYPE_INT_RGB);
 		}
 
-		System.out.println(screenshots[screenshots.length - 1]);
-
 		BufferedImage img = ImageIO.read(screenshots[screenshots.length - 1]);
 
-		//screenshots[screenshots.length - 1].delete();
+		screenshots[screenshots.length - 1].delete();
 
 		return img;
 	}

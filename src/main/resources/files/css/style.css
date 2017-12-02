@@ -19,3 +19,11 @@ body {
     left: 25%;
     top: 10%;
 }
+
+#status {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	font-size: 40pt;
+	top: 50%;
+}
